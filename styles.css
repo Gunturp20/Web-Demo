@@ -1,0 +1,220 @@
+/* Reset dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Cegah scroll horizontal */
+html, body {
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    scroll-behavior: smooth;
+}
+
+/* Pastikan main mengisi ruang kosong agar footer terdorong ke bawah */
+main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HEADER TRANSPARAN */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+/* Ubah warna background header saat scroll */
+header.scrolled {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+header.scrolled nav ul li a {
+    color: black;
+}
+
+/* NAVIGATION */
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* BAGIAN HOME */
+#HOME {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 100vh;
+    width: 100%;
+    background: url('fotoo.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    position: relative;
+}
+
+/* STYLE UNTUK SEMUA SECTION */
+section {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding-top: 120px;
+    transition: background 0.5s ease-in-out;
+}
+
+/* BACKGROUND SETIAP SECTION */
+#ABOUT, #CONTACT, #SERVICES {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    min-height: 100vh;
+    padding: 100px 20px;
+    color: white;
+    transition: background 0.5s ease-in-out;
+}
+
+#ABOUT { background: url('fotoo2.jpg') no-repeat center center; }
+#CONTACT { background: url('fotoo3.jpg') no-repeat center center; }
+#SERVICES { background: url('fotoo4.jpg') no-repeat center center; }
+
+/* BAGIAN ISI SECTION */
+.section-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 90%;
+}
+
+.section-content1 {
+    width: 100%;
+    height: 100vh;
+    max-width: 600px;
+    display: flex;
+    background: rgba(255, 255, 255, 0.85) transparent;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    opacity: 0;
+    transform: translateY(50px);
+    position: relative;
+    z-index: 2;
+    color: white;
+}
+
+.section-content {
+    width: 100%;
+    height: 100vh;
+    max-width: none;
+    left: 0;
+    right: 0;
+    display: flex;
+    background: white;
+    padding: 20px;
+    border-radius: 0;
+    text-align: center;
+    transition: opacity 0.4s ease-in-out, transform 0.4s ease-in-out;
+    opacity: 1;
+    transform: none;
+    position: absolute;
+    z-index: 2;
+    color: white;
+}
+
+.parent-container {
+    display: flex;
+    justify-content: center; /* Geser ke tengah secara horizontal */
+    align-items: center; /* Geser ke tengah secara vertikal */
+    height: 100vh; /* Pastikan parent memenuhi tinggi layar */
+}
+
+
+/* Overlay untuk section */
+.uagb-section__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+/* Saat div terlihat, muncul dengan efek */
+.section-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Perbaiki warna teks */
+.section-content p {
+    color: black;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    background: rgba(0, 51, 85, 0.8);
+    color: white;
+    margin-top: auto;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+    .section-content {
+        width: 90%;
+        max-width: none;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
