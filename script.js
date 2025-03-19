@@ -7,6 +7,17 @@ document.addEventListener("DOMContentLoaded", function () {
         // Tampilkan hanya section yang dipilih
         document.getElementById(sectionId).style.display = "block";
     }
+    
+    document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("scroll", function () {
+            let header = document.querySelector("header");
+            if (window.scrollY > 50) {
+                header.classList.add("scrolled"); // Tambahkan efek scroll
+            } else {
+                header.classList.remove("scrolled");
+            }
+        });
+    });
 
     // Ambil semua link di menu
     document.querySelectorAll("nav ul li a").forEach(link => {
