@@ -245,7 +245,7 @@ footer {
 
     header {
         background-color: rgba(0, 51, 85, 0.9);
-        position: fixed; /* Agar tetap di atas saat scroll */
+        position: relative; /* Agar tetap di atas saat scroll */
         width: 100%;
         z-index: 1000;
     }
